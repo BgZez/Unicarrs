@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNICARRS — Gestão de Estoque</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">UNICARRS</h1>
+      <p class="sub">Gestão de Estoque de Veículos</p>
+    </div>
+  </header>
+
+    <!-- FORMULÁRIO -->
+    <section class="card">
+      <h2>Cadastrar Veículo</h2>
+      <form id="form-veiculo" autocomplete="off">
+        <div class="linha">
+          <label>Marca
+            <input type="text" id="marca" required>
+          </label>
+          <label>Modelo
+            <input type="text" id="modelo" required>
+          </label>
+        </div>
+
+        <div class="linha">
+          <label>Ano
+            <input type="number" id="ano" required>
+          </label>
+          <label>Cor
+            <input type="text" id="cor">
+          </label>
+        </div>
+
+        <div class="linha">
+          <label>Preço
+            <input type="text" id="preco" placeholder="Ex: 45000.50" required>
+          </label>
+          <label>Quilometragem
+            <input type="number" id="quilometragem">
+          </label>
+        </div>
+
+        <div class="linha">
+          <label>Foto (URL)
+            <input type="url" id="foto" placeholder="https://...">
+          </label>
+
+          <label>Status
+            <select id="status">
+              <option value="DISPONIVEL">DISPONIVEL</option>
+              <option value="VENDIDO">VENDIDO</option>
+              <option value="RESERVADO">RESERVADO</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="botoes">
+          <button type="submit" class="btn-red">Cadastrar</button>
+          <button type="button" id="btn-refresh" class="btn-black">Atualizar Lista</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="card">
+      <h2>Filtrar Veículos</h2>
+      <div class="filtros">
+        <input type="text" id="filtro-marca" placeholder="Marca">
+        <div class="filtro-setas">
+          <input type="text" id="filtro-modelo" placeholder="Modelo">
+          <button id="btn-prev" title="modelo anterior">◀</button>
+          <button id="btn-next" title="próximo modelo">▶</button>
+        </div>
+        <input type="number" id="filtro-ano" placeholder="Ano">
+        <select id="filtro-status">
+          <option value="">Status (todos)</option>
+          <option value="DISPONIVEL">DISPONIVEL</option>
+          <option value="VENDIDO">VENDIDO</option>
+          <option value="RESERVADO">RESERVADO</option>
+        </select>
+
+        <button id="btn-aplicar" class="btn-black">Aplicar</button>
+        <button id="btn-limpar" class="btn-red">Limpar</button>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="card">
+      <h2>Carros Disponíveis</h2>
+      <div id="galeria" class="galeria" aria-live="polite">
+        <!-- cards inseridos por JS -->
+      </div>
+    </section>
+
+    <!-- TABELA -->
+    <section class="card">
+      <h2>Veículos Cadastrados</h2>
+      <div class="table-wrap">
+        <table id="tabela" role="table">
+          <thead>
+            <tr>
+              <th>ID</th><th>Marca</th><th>Modelo</th><th>Ano</th><th>Cor</th>
+              <th>Preço</th><th>KM</th><th>Status</th><th>Foto</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
