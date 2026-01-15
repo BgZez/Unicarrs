@@ -9,9 +9,10 @@ import java.math.BigDecimal;
 @Table(name = "tbl_veiculos")
 public class Estoque {
 
+    public Estoque() {}
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    private Long id;
     private String marca;
     private String modelo;
     private Integer ano;
